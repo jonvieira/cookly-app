@@ -1,0 +1,157 @@
+[versions]
+agp = "8.10.1"
+kotlin = "2.0.0"
+core-ktx = "1.13.1"
+junit = "4.13.2"
+junit-version = "1.2.1"
+espresso-core = "3.6.1"
+lifecycle-runtime-ktx = "2.8.7"
+activity-compose = "1.9.3"
+compose-bom = "2024.11.00"
+
+hilt-android-compiler = "2.51.1"
+hilt-android = "2.51.1"
+hilt-compiler = "1.2.0"
+kotlinx-coroutines-test = "1.9.0"
+google-hilt-android-testing = "2.51.1"
+
+ksp = "2.0.0-1.0.21"
+mockito-core = "5.11.0"
+mockito-kotlin = "5.3.1"
+kotlinx-serialization-json = "1.7.3"
+
+accompanist-flowlayout = "0.19.0"
+barcode-scanning = "17.3.0"
+coil-compose = "2.6.0"
+core-splashscreen = "1.0.1"
+datastore-preferences = "1.1.2"
+kotlinx-coroutines-android = "1.9.0"
+kotlinx-coroutines-core = "1.9.0"
+kotlinx-coroutines-play-services = "1.9.0"
+
+ktorBom = "3.0.0"
+
+truth = "1.4.2"
+timber = "5.0.1"
+turbine = "1.1.0"
+slf4j-android = "1.7.36"
+
+navigation-compose = "2.8.5"
+material-icons-extended = "1.7.6"
+
+play-services-code-scanner = "16.1.0"
+play-services-mlkit-barcode-scanning = "18.3.1"
+play-services-mlkit-text-recognition = "19.0.1"
+
+[libraries]
+
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons-extended" }
+
+#SplashScreen
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
+
+#Datastore
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
+
+#Kotlin Serialization
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+
+#Timber
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+#Compose dependencies
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime-ktx" }
+accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist-flowlayout" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+
+#Coroutines
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
+kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinx-coroutines-play-services" }
+
+#Coroutine Lifecycle Scopes
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+
+#Ktor Client Android
+ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktorBom" }
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core" }
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp" }
+ktor-client-android = { group = "io.ktor", name = "ktor-client-android" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging" }
+ktor-serialization-gson = { group = "io.ktor", name = "ktor-serialization-gson" }
+ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
+
+#Ktor Websocket client
+ktor-client-websockets = { group = "io.ktor", name = "ktor-client-websockets" }
+
+#logging-slf4j
+slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4j-android" }
+
+#Coil
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
+
+#Google e MlKit
+play-services-mlkit-barcode-scanning = { module = "com.google.android.gms:play-services-mlkit-barcode-scanning", version.ref = "play-services-mlkit-barcode-scanning" }
+play-services-mlkit-text-recognition = { module = "com.google.android.gms:play-services-mlkit-text-recognition", version.ref = "play-services-mlkit-text-recognition" }
+play-services-code-scanner = { module = "com.google.android.gms:play-services-code-scanner", version.ref = "play-services-code-scanner" }
+barcode-scanning = { module = "com.google.mlkit:barcode-scanning", version.ref = "barcode-scanning" }
+
+#Testing
+junit = { module = "junit:junit", version.ref = "junit" }
+
+#Android testing
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junit-version" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+#Mockito
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-core" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
+
+#Turbine
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+
+#Truth
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+
+#Kotlin tests
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
+
+#Hilt
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compiler" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
+dagger-hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "google-hilt-android-testing" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
+google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[bundles]
+ktor = ["ktor-client-core",
+    "ktor-client-okhttp",
+    "ktor-client-android",
+    "ktor-client-logging",
+    "ktor-serialization-gson",
+    "ktor-client-serialization",
+    "ktor-client-content-negotiation",
+    "ktor-client-websockets"]
