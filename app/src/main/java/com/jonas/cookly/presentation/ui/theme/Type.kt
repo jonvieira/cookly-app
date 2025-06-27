@@ -1,4 +1,4 @@
-package com.jonas.cookly.ui.theme
+package com.jonas.cookly.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
