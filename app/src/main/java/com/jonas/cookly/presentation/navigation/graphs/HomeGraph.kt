@@ -1,0 +1,16 @@
+package com.jonas.cookly.presentation.navigation.graphs
+
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.navigation
+import com.jonas.cookly.presentation.navigation.screens.Graphs
+import com.jonas.cookly.presentation.navigation.screens.HomeScreens
+
+fun NavGraphBuilder.homeGraph(
+    onNavigateUp: () -> Unit
+) {
+    navigation<Graphs.HomeGraph>(
+        startDestination = HomeScreens.HomeScreen
+    ) {
+
+    }
+}
