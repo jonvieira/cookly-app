@@ -8,7 +8,9 @@ import androidx.navigation.compose.rememberNavController
 import com.jonas.cookly.presentation.navigation.RootHost
 import com.jonas.cookly.presentation.navigation.screens.Graphs
 import com.jonas.cookly.presentation.ui.theme.CooklyAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +19,6 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             CooklyAppTheme {
-
                 RootHost(
                     startDestination = Graphs.AuthGraph,
                     navController = rememberNavController()
