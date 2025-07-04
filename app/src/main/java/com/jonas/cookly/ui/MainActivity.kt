@@ -1,4 +1,4 @@
-package com.jonas.cookly.ui.presentation
+package com.jonas.cookly.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
