@@ -10,13 +10,14 @@ import com.jonas.cookly.presentation.features.register.domain.repository.Registe
 import com.jonas.cookly.presentation.features.register.domain.usecase.RegisterUserUseCase.Params
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 interface RegisterUserUseCase {
     operator fun invoke(params: Params): Flow<ResponseData<SimplesResponseModel>>
     data class Params(val addUserRequestModel: AddUserRequestModel)
 }
 
-class RegisterUserUseCaseImpl(
+class RegisterUserUseCaseImpl @Inject constructor(
     private val registerUserRepository: RegisterUserRepository,
     private val dispatchers: DispatchersProvider
 ) : RegisterUserUseCase, Task<Params, SimplesResponseModel>() {
