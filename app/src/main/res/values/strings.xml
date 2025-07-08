@@ -82,7 +82,7 @@
     <string name="hint_password_text">Digite a senha</string>
     <string name="hint_repeat_password_text">Confirme a senha</string>
 
-    <string name="description_nome_text">Nome</string>
+    <string name="description_name_text">Nome</string>
     <string name="description_phone_text">Telefone</string>
     <string name="hint_nome_text">Escreva seu nome</string>
     <string name="hint_phone_text">32 9 9138–3838</string>
