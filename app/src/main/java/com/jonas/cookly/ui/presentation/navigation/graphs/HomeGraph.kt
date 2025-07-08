@@ -8,9 +8,9 @@ import com.jonas.cookly.ui.presentation.navigation.screens.HomeScreens
 fun NavGraphBuilder.homeGraph(
     onNavigateUp: () -> Unit
 ) {
-    navigation<Graphs.HomeGraph>(
-        startDestination = HomeScreens.HomeScreen
-    ) {
-
-    }
+//    navigation<Graphs.HomeGraph>(
+//        startDestination = HomeScreens.HomeScreen
+//    ) {
+//
+//    }
 }

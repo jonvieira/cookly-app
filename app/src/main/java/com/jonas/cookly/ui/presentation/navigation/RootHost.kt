@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.jonas.cookly.ui.presentation.navigation.graphs.authGraph
 import com.jonas.cookly.ui.presentation.navigation.graphs.homeGraph
+import com.jonas.cookly.ui.presentation.navigation.screens.AuthScreens
 import com.jonas.cookly.ui.presentation.navigation.screens.Graphs
 
 @Composable
@@ -19,6 +20,9 @@ fun RootHost(
         authGraph(
             onNavigateToHome = {
                 navController.navigate(Graphs.HomeGraph)
+            },
+            onNavigateToRegister = {
+                navController.navigate(AuthScreens.RegisterScreen)
             }
         )
 
