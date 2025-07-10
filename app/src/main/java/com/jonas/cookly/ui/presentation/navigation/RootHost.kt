@@ -23,6 +23,13 @@ fun RootHost(
             },
             onNavigateToRegister = {
                 navController.navigate(AuthScreens.RegisterScreen)
+            },
+            onNavigateToLogin = {
+                navController.navigate(AuthScreens.LoginScreen) {
+                    popUpTo(Graphs.AuthGraph) {
+                        inclusive = true
+                    }
+                }
             }
         )
 
