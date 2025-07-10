@@ -72,7 +72,7 @@
 
     <!--    Login and Register-->
     <string name="no_have_account_text">Não tem uma conta?</string>
-    <string name="already_have_an_account">já possui uma conta?</string>
+    <string name="already_have_an_account">Já possui uma conta?</string>
     <string name="register_text">Registrar-se</string>
     <string name="register_button_text">Cadastrar</string>
     <string name="description_email_text">Email</string>
@@ -82,7 +82,7 @@
     <string name="hint_password_text">Digite a senha</string>
     <string name="hint_repeat_password_text">Confirme a senha</string>
 
-    <string name="description_nome_text">Nome</string>
+    <string name="description_name_text">Nome</string>
     <string name="description_phone_text">Telefone</string>
     <string name="hint_nome_text">Escreva seu nome</string>
     <string name="hint_phone_text">32 9 9138–3838</string>

@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,6 +9,9 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
 }
+
+val apiKeyProperties = Properties()
+apiKeyProperties.load(FileInputStream(rootProject.file("apiKey.properties")))
 
 android {
     namespace = "com.jonas.cookly"
@@ -19,6 +25,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", apiKeyProperties.getProperty("BASE_URL"))
     }
 
     buildTypes {
