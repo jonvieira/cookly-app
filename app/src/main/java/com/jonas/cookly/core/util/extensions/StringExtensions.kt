@@ -14,3 +14,17 @@ fun String.containsSpecialChar(): Boolean {
     val regex = Regex(".*[^A-Za-z\\d]+.*")
     return regex.matches(this)
 }
+
+fun String.toFormattedPhoneNumber(): String {
+    val phoneNumber = this.filter { it.isDigit() }
+
+    if (phoneNumber.length != 11) throw IllegalArgumentException("Invalid phone number length")
+
+    val ddd = phoneNumber.substring(0, 2)
+    val firstDigit = phoneNumber[2]
+    val firstPart = phoneNumber.substring(3, 7)
+    val secondPart = phoneNumber.substring(7)
+
+    return "$ddd $firstDigit $firstPart-$secondPart"
+}
+
