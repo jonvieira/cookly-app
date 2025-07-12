@@ -5,9 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.jonas.cookly.core.sideeffects.SideEffect
-import com.jonas.cookly.core.util.SingleEventEffect
 import com.jonas.cookly.core.util.extensions.showToast
+import com.jonas.cookly.core.util.sideeffect.SideEffect
+import com.jonas.cookly.core.util.sideeffect.SingleEventEffect
 import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnEmailChanged
 import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnNameChanged
 import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnPasswordChanged

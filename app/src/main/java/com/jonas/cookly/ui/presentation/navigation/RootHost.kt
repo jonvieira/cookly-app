@@ -18,9 +18,6 @@ fun RootHost(
         startDestination = startDestination
     ) {
         authGraph(
-            onNavigateToHome = {
-                navController.navigate(Graphs.HomeGraph)
-            },
             onNavigateToRegister = {
                 navController.navigate(AuthScreens.RegisterScreen)
             },
@@ -33,10 +30,6 @@ fun RootHost(
             }
         )
 
-        homeGraph(
-            onNavigateUp = {
-                navController.navigateUp()
-            }
-        )
+        homeGraph()
     }
 }

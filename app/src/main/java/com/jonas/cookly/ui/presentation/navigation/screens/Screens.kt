@@ -50,5 +50,4 @@ sealed interface HomeScreens {
 
     @Serializable
     data object SearchScreen : HomeScreens
-
 }

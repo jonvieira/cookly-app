@@ -43,7 +43,6 @@ private val LightColorScheme = lightColorScheme(
     onSurfaceVariant = LightText
 )
 
-
 @Composable
 fun CooklyAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

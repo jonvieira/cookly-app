@@ -8,8 +8,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.jonas.cookly.ui.theme.CooklyAppTheme
 
 @Composable
 fun LoginScreen(
@@ -26,15 +24,5 @@ fun LoginScreen(
         ) {
             Text("Login")
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun LoginScreenPreview() {
-    CooklyAppTheme {
-        LoginScreen(
-            onNavigateToRegister = {}
-        )
     }
 }

@@ -18,7 +18,7 @@ fun String.containsSpecialChar(): Boolean {
 fun String.toFormattedPhoneNumber(): String {
     val phoneNumber = this.filter { it.isDigit() }
 
-    if (phoneNumber.length != 11) throw IllegalArgumentException("Invalid phone number length")
+    require(phoneNumber.length != 11) { "Invalid phone number length" }
 
     val ddd = phoneNumber.substring(0, 2)
     val firstDigit = phoneNumber[2]
@@ -27,4 +27,3 @@ fun String.toFormattedPhoneNumber(): String {
 
     return "$ddd $firstDigit $firstPart-$secondPart"
 }
-

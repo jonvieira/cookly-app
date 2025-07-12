@@ -32,11 +32,10 @@ val Typography = Typography(
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     )
-    */
+     */
 )
 
-
-//Poppins
+// Poppins
 val poppinsFontFamily = FontFamily(
     Font(R.font.poppins_black, FontWeight.Black),
     Font(R.font.poppins_bold, FontWeight.Bold),
@@ -46,5 +45,5 @@ val poppinsFontFamily = FontFamily(
     Font(R.font.poppins_medium, FontWeight.Medium),
     Font(R.font.poppins_regular, FontWeight.Normal),
     Font(R.font.poppins_semi_bold, FontWeight.SemiBold),
-    Font(R.font.poppins_thin, FontWeight.Thin),
+    Font(R.font.poppins_thin, FontWeight.Thin)
 )
