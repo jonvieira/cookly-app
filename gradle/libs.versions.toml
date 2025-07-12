@@ -31,6 +31,9 @@ kotlinx-coroutines-play-services = "1.9.0"
 
 ktorBom = "3.0.0"
 
+ktlint = "11.6.0"
+detekt = "1.23.6"
+
 truth = "1.4.2"
 timber = "5.0.1"
 turbine = "1.1.0"
@@ -66,6 +69,9 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 
 #Timber
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+#Detekt
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
 #Compose dependencies
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
@@ -145,6 +151,8 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 
 [bundles]
 ktor = ["ktor-client-core",
