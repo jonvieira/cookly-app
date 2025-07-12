@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
       - uses: actions/checkout@v4
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Set Up JDK 17
         uses: actions/setup-java@v4
@@ -27,7 +29,6 @@ jobs:
       - name: Create apiKey.properties
         run: |
           echo "BASE_URL=${{ secrets.BASE_URL }}" > cookly-app/apiKey.properties
-
       - name: Run ktlint
         run: ./gradlew ktlintCheck
 
