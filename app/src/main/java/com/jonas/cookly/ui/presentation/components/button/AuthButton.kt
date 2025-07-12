@@ -32,7 +32,7 @@ fun AuthButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = Color.White,
-            disabledContainerColor = Color.LightGray,
+            disabledContainerColor = Color.LightGray
         ),
         enabled = enabled
     ) {

@@ -61,7 +61,7 @@ fun RegisterScreen(onNavigateToLogin: () -> Unit) {
                     )
                 },
                 onRegisterButtonClick = { viewModel.onEvent(OnRegisterClick) },
-                onNavigateToLogin = onNavigateToLogin,
+                onNavigateToLogin = onNavigateToLogin
             )
         }
     )

@@ -11,7 +11,7 @@ import com.jonas.cookly.ui.presentation.navigation.screens.Graphs
 @Composable
 fun RootHost(
     startDestination: Graphs,
-    navController: NavHostController,
+    navController: NavHostController
 ) {
     NavHost(
         navController = navController,
