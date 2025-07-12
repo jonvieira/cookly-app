@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.detekt)
 }
 
 val apiKeyProperties = Properties()
@@ -26,7 +28,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "BASE_URL", apiKeyProperties.getProperty("BASE_URL"))
+        buildConfigField("String", "BASE_URL", "\"${apiKeyProperties.getProperty("BASE_URL")}\"")
     }
 
     buildTypes {
@@ -51,6 +53,30 @@ android {
     }
     hilt {
         enableAggregatingTask = true
+    }
+    detekt {
+        buildUponDefaultConfig = true
+        allRules = false
+        autoCorrect = true
+
+        config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
+
+        reports {
+            html {
+                required.set(true)
+                outputLocation.set(file("$buildDir/reports/detekt/detekt-report.html"))
+            }
+            xml {
+                required.set(true)
+                outputLocation.set(file("$buildDir/reports/detekt/detekt-report.xml"))
+            }
+            txt {
+                required.set(false)
+            }
+            sarif {
+                required.set(false)
+            }
+        }
     }
 }
 
@@ -99,7 +125,7 @@ dependencies {
     implementation(platform(libs.ktor.bom))
     implementation(libs.bundles.ktor)
 
-    //Logging-Slf4j
+    // Logging-Slf4j
     implementation(libs.slf4j.android)
 
     // Dependency Injection (DI) - Hilt
@@ -116,6 +142,9 @@ dependencies {
     implementation(libs.play.services.code.scanner)
     implementation(libs.barcode.scanning)
     implementation(libs.play.services.mlkit.text.recognition)
+
+    // Detekt
+    detektPlugins(libs.detekt.formatting)
 
     // Testing - Unit Tests
     testImplementation(libs.junit)
@@ -140,5 +169,4 @@ dependencies {
 
     // Hilt Testing
     kspAndroidTest(libs.hilt.android.compiler)
-
 }

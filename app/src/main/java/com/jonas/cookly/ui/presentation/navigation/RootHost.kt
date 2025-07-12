@@ -11,16 +11,13 @@ import com.jonas.cookly.ui.presentation.navigation.screens.Graphs
 @Composable
 fun RootHost(
     startDestination: Graphs,
-    navController: NavHostController,
+    navController: NavHostController
 ) {
     NavHost(
         navController = navController,
         startDestination = startDestination
     ) {
         authGraph(
-            onNavigateToHome = {
-                navController.navigate(Graphs.HomeGraph)
-            },
             onNavigateToRegister = {
                 navController.navigate(AuthScreens.RegisterScreen)
             },
@@ -33,10 +30,6 @@ fun RootHost(
             }
         )
 
-        homeGraph(
-            onNavigateUp = {
-                navController.navigateUp()
-            }
-        )
+        homeGraph()
     }
 }

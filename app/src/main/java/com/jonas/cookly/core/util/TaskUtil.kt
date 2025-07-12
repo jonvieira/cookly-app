@@ -22,4 +22,3 @@ abstract class FlowTask<in Params, Result : Any> {
 
     protected abstract suspend fun execute(params: Params): Flow<Result>
 }
-

@@ -9,7 +9,6 @@ import com.jonas.cookly.ui.presentation.navigation.screens.AuthScreens
 import com.jonas.cookly.ui.presentation.navigation.screens.Graphs
 
 fun NavGraphBuilder.authGraph(
-    onNavigateToHome: () -> Unit,
     onNavigateToRegister: () -> Unit,
     onNavigateToLogin: () -> Unit
 ) {

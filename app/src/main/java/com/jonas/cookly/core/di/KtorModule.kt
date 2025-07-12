@@ -42,7 +42,7 @@ object KtorModule {
     @Provides
     @Singleton
     fun providesHttpClient(
-        okHttpClient: OkHttpClient,
+        okHttpClient: OkHttpClient
     ): HttpClient {
         return HttpClient(OkHttp) {
             defaultRequest {

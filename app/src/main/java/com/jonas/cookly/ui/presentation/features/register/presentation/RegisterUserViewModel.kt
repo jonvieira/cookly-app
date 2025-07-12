@@ -2,9 +2,9 @@ package com.jonas.cookly.ui.presentation.features.register.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jonas.cookly.core.sideeffects.SideEffect
 import com.jonas.cookly.core.util.extensions.observeState
 import com.jonas.cookly.core.util.extensions.toFormattedPhoneNumber
+import com.jonas.cookly.core.util.sideeffect.SideEffect
 import com.jonas.cookly.ui.presentation.features.register.domain.model.AddUserRequestModel
 import com.jonas.cookly.ui.presentation.features.register.domain.model.RegisterInputValidationType
 import com.jonas.cookly.ui.presentation.features.register.domain.usecase.RegisterUserUseCase
@@ -44,7 +44,6 @@ class RegisterUserViewModel @Inject constructor(
 
     private val _sideEffectChannel = Channel<SideEffect>(capacity = Channel.BUFFERED)
     val sideEffectChannel = _sideEffectChannel.receiveAsFlow()
-
 
     fun onEvent(event: RegisterUserEvent) {
         when (event) {

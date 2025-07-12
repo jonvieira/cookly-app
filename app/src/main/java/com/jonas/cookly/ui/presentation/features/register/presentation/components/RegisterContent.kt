@@ -39,7 +39,7 @@ fun RegisterContent(
     onPasswordRepeatedChanged: (String) -> Unit,
     onTogglePasswordIconClick: () -> Unit,
     onTogglePasswordRepeatedIconClick: () -> Unit,
-    onRegisterButtonClick: () -> Unit,
+    onRegisterButtonClick: () -> Unit
 ) {
     Column(
         modifier = modifier

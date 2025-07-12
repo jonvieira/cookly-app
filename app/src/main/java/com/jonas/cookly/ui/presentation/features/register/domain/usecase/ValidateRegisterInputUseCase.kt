@@ -15,6 +15,7 @@ interface ValidateRegisterInputUseCase {
     ): RegisterInputValidationType
 }
 
+@Suppress("ReturnCount")
 class ValidateRegisterInputUseCaseImpl : ValidateRegisterInputUseCase {
     override fun invoke(
         name: String,
@@ -23,7 +24,6 @@ class ValidateRegisterInputUseCaseImpl : ValidateRegisterInputUseCase {
         password: String,
         passwordConfirmation: String
     ): RegisterInputValidationType {
-
         if (listOf(name, email, phone, password, passwordConfirmation).any { it.isBlank() }) {
             return RegisterInputValidationType.EmptyField
         }

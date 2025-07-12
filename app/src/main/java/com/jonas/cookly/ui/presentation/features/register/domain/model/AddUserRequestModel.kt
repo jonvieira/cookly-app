@@ -6,12 +6,12 @@ data class AddUserRequestModel(
     val name: String,
     val email: String,
     val password: String,
-    val phone: String,
+    val phone: String
 )
 
 fun AddUserRequestModel.toAddUserRequest() = AddUserRequest(
     name = name,
     email = email,
     password = password,
-    phone = phone,
+    phone = phone
 )

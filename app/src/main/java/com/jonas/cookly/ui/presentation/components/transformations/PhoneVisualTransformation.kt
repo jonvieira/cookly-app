@@ -14,7 +14,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 class PhoneVisualTransformation : VisualTransformation {
 
     override fun filter(text: AnnotatedString): TransformedText {
-
         val phoneMask = text.text.mapIndexed { index, c ->
             when (index) {
                 1, 2 -> "$c "
