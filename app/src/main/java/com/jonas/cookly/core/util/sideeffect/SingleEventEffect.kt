@@ -1,4 +1,4 @@
-package com.jonas.cookly.core.util
+package com.jonas.cookly.core.util.sideeffect
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
