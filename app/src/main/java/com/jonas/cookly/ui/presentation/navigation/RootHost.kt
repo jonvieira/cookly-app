@@ -27,6 +27,13 @@ fun RootHost(
                         inclusive = true
                     }
                 }
+            },
+            onNavigateToHome = {
+                navController.navigate(Graphs.HomeGraph) {
+                    popUpTo(Graphs.AuthGraph) {
+                        inclusive = true
+                    }
+                }
             }
         )
 
