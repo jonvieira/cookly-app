@@ -17,6 +17,7 @@ object Dimens {
         val regular = 14.sp
         val medium = 16.sp
         val large = 20.sp
+        val xlarge = 26.sp
     }
 
     object Radius {
