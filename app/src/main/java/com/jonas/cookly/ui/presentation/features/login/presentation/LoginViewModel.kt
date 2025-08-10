@@ -1,8 +1,12 @@
 package com.jonas.cookly.ui.presentation.features.login.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.jonas.cookly.core.util.extensions.observeState
 import com.jonas.cookly.core.util.sideeffect.SideEffect
+import com.jonas.cookly.ui.presentation.features.login.domain.model.AuthUserRequestModel
 import com.jonas.cookly.ui.presentation.features.login.domain.model.LoginInputValidationType
+import com.jonas.cookly.ui.presentation.features.login.domain.usecase.LoginUseCase
 import com.jonas.cookly.ui.presentation.features.login.domain.usecase.ValidateLoginInputUseCase
 import com.jonas.cookly.ui.presentation.features.login.presentation.state.LoginUiState
 import com.jonas.cookly.ui.presentation.features.login.presentation.util.LoginField
@@ -14,11 +18,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val validateLoginInputUseCase: ValidateLoginInputUseCase
+    private val validateLoginInputUseCase: ValidateLoginInputUseCase,
+    private val loginUseCase: LoginUseCase
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState = _uiState.asStateFlow()
@@ -68,6 +74,36 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun onLoginClick() {
-
+        viewModelScope.launch {
+            loginUseCase.invoke(
+                params = LoginUseCase.Params(
+                    AuthUserRequestModel(
+                        email = _uiState.value.email,
+                        password = _uiState.value.password
+                    )
+                )
+            ).observeState(
+                onLoading = {
+                    _uiState.update { it.copy(isLoading = true) }
+                },
+                onError = { error ->
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            errorMessageLoginProcess = error.message.toString()
+                        )
+                    }
+                },
+                onSuccess = { response ->
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            isSuccessfulLogin = response.isSuccess
+                        )
+                    }
+                    _sideEffectChannel.send(SideEffect.ShowToast(response.message.toString()))
+                }
+            )
+        }
     }
 }
