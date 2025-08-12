@@ -1,17 +1,19 @@
-package com.jonas.cookly.ui.presentation.features.login.presentation
+package com.jonas.cookly.ui.features.login.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jonas.cookly.core.domain.UserData
 import com.jonas.cookly.core.util.extensions.observeState
 import com.jonas.cookly.core.util.sideeffect.SideEffect
-import com.jonas.cookly.ui.presentation.features.login.domain.model.AuthUserRequestModel
-import com.jonas.cookly.ui.presentation.features.login.domain.model.LoginInputValidationType
-import com.jonas.cookly.ui.presentation.features.login.domain.usecase.LoginUseCase
-import com.jonas.cookly.ui.presentation.features.login.domain.usecase.ValidateLoginInputUseCase
-import com.jonas.cookly.ui.presentation.features.login.presentation.state.LoginUiState
-import com.jonas.cookly.ui.presentation.features.login.presentation.util.LoginField
-import com.jonas.cookly.ui.presentation.features.login.presentation.util.LoginField.Email
-import com.jonas.cookly.ui.presentation.features.login.presentation.util.LoginField.Password
+import com.jonas.cookly.ui.features.login.domain.model.AuthUserRequestModel
+import com.jonas.cookly.ui.features.login.domain.model.LoginInputValidationType
+import com.jonas.cookly.ui.features.login.domain.usecase.LoginUseCase
+import com.jonas.cookly.ui.features.login.domain.usecase.SaveUserDataUseCase
+import com.jonas.cookly.ui.features.login.domain.usecase.ValidateLoginInputUseCase
+import com.jonas.cookly.ui.features.login.presentation.state.LoginUiState
+import com.jonas.cookly.ui.features.login.presentation.util.LoginField
+import com.jonas.cookly.ui.features.login.presentation.util.LoginField.Email
+import com.jonas.cookly.ui.features.login.presentation.util.LoginField.Password
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,7 +26,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val validateLoginInputUseCase: ValidateLoginInputUseCase,
-    private val loginUseCase: LoginUseCase
+    private val loginUseCase: LoginUseCase,
+    private val saveUserDataUseCase: SaveUserDataUseCase
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState = _uiState.asStateFlow()
@@ -78,8 +81,8 @@ class LoginViewModel @Inject constructor(
             loginUseCase.invoke(
                 params = LoginUseCase.Params(
                     AuthUserRequestModel(
-                        email = _uiState.value.email,
-                        password = _uiState.value.password
+                        email = _uiState.value.email.trim(),
+                        password = _uiState.value.password.trim()
                     )
                 )
             ).observeState(
@@ -102,8 +105,24 @@ class LoginViewModel @Inject constructor(
                         )
                     }
                     _sideEffectChannel.send(SideEffect.ShowToast(response.message.toString()))
+                    saveUser(response.token.toString(), response.userName.toString())
                 }
             )
         }
+    }
+
+    private suspend fun saveUser(token: String, username: String) {
+        saveUserDataUseCase.invoke(
+            params = SaveUserDataUseCase.Params(
+                userData = UserData(
+                    token = token,
+                    userName = username
+                )
+            )
+        ).observeState(
+            onLoading = {},
+            onError = {},
+            onSuccess = {}
+        )
     }
 }
