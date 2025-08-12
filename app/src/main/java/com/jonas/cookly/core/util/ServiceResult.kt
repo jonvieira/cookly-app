@@ -5,7 +5,7 @@ sealed class ServiceResult<out T> {
     data class Error(val code: String? = null, val message: String) : ServiceResult<Nothing>()
 }
 
-fun <T, R> ServiceResult<T>.map(transform: (T) -> R): ServiceResult<R> {
+fun <T, R> ServiceResult<T>.mapper(transform: (T) -> R): ServiceResult<R> {
     return when (this) {
         is ServiceResult.Success -> ServiceResult.Success(transform(data))
         is ServiceResult.Error -> ServiceResult.Error(code, message)

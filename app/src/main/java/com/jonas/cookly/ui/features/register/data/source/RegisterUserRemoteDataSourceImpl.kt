@@ -4,7 +4,7 @@ import com.jonas.cookly.core.data.remote.response.toSimplesResponseModel
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApi
 import com.jonas.cookly.core.domain.SimplesResponseModel
 import com.jonas.cookly.core.util.ServiceResult
-import com.jonas.cookly.core.util.map
+import com.jonas.cookly.core.util.mapper
 import com.jonas.cookly.ui.features.register.domain.model.AddUserRequestModel
 import com.jonas.cookly.ui.features.register.domain.model.toAddUserRequest
 import com.jonas.cookly.ui.features.register.domain.source.RegisterUserRemoteDataSource
@@ -17,6 +17,6 @@ class RegisterUserRemoteDataSourceImpl @Inject constructor(
     override suspend fun registerUser(addUserRequestModel: AddUserRequestModel): ServiceResult<SimplesResponseModel> {
         return recipesServiceApi
             .register(addUserRequestModel.toAddUserRequest())
-            .map { it.toSimplesResponseModel() }
+            .mapper { it.toSimplesResponseModel() }
     }
 }

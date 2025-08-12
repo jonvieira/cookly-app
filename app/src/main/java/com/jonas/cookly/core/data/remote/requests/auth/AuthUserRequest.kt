@@ -1,4 +1,4 @@
-package com.jonas.cookly.core.data.remote.requests
+package com.jonas.cookly.core.data.remote.requests.auth
 
 import com.google.gson.annotations.SerializedName
 

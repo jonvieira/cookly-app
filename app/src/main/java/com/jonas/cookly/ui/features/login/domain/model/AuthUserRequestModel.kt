@@ -1,6 +1,6 @@
 package com.jonas.cookly.ui.features.login.domain.model
 
-import com.jonas.cookly.core.data.remote.requests.AuthUserRequest
+import com.jonas.cookly.core.data.remote.requests.auth.AuthUserRequest
 
 data class AuthUserRequestModel(
     val email: String,
