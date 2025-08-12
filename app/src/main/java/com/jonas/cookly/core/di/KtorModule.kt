@@ -2,9 +2,11 @@ package com.jonas.cookly.core.di
 
 import com.google.gson.Gson
 import com.google.gson.Strictness
+import com.jonas.cookly.BuildConfig
 import com.jonas.cookly.BuildConfig.BASE_URL
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApi
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApiImpl
+import com.jonas.cookly.core.data.remote.service.interceptor.TokenInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +15,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.EMPTY
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
@@ -43,7 +46,8 @@ object KtorModule {
     @Provides
     @Singleton
     fun providesHttpClient(
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
+        tokenInterceptor: TokenInterceptor
     ): HttpClient {
         return HttpClient(OkHttp) {
             defaultRequest {
@@ -52,15 +56,22 @@ object KtorModule {
             }
             engine {
                 preconfigured = okHttpClient
-                config { }
+                config { addInterceptor(tokenInterceptor) }
             }
-            install(Logging) {
-                logger = object : Logger {
-                    override fun log(message: String) {
-                        Timber.tag("Logger Ktor -> ").v(message)
+            if (BuildConfig.DEBUG) {
+                install(Logging) {
+                    logger = object : Logger {
+                        override fun log(message: String) {
+                            Timber.tag("Logger Ktor -> ").v(message)
+                        }
                     }
+                    level = LogLevel.ALL
                 }
-                level = LogLevel.ALL
+            } else {
+                install(Logging) {
+                    logger = Logger.EMPTY
+                    level = LogLevel.NONE
+                }
             }
             install(ContentNegotiation) {
                 gson {
