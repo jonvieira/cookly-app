@@ -3,7 +3,7 @@ package com.jonas.cookly.ui.features.login.data.source
 import com.jonas.cookly.core.data.remote.response.toTokenResponseModel
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApi
 import com.jonas.cookly.core.util.ServiceResult
-import com.jonas.cookly.core.util.map
+import com.jonas.cookly.core.util.mapper
 import com.jonas.cookly.ui.features.login.domain.model.AuthUserRequestModel
 import com.jonas.cookly.ui.features.login.domain.model.TokenResponseModel
 import com.jonas.cookly.ui.features.login.domain.model.toAddUserRequest
@@ -17,6 +17,6 @@ class LoginRemoteDataSourceImpl @Inject constructor(
     override suspend fun login(authUserRequestModel: AuthUserRequestModel): ServiceResult<TokenResponseModel> {
         return recipesServiceApi
             .login(authUserRequestModel.toAddUserRequest())
-            .map { it.toTokenResponseModel() }
+            .mapper { it.toTokenResponseModel() }
     }
 }
