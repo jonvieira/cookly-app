@@ -37,10 +37,6 @@ fun RootHost(
             }
         )
 
-        homeGraph(
-            onNavigateUp = {
-                navController.navigateUp()
-            }
-        )
+        homeGraph()
     }
 }

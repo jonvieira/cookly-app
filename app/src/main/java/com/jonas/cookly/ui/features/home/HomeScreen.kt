@@ -12,9 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.jonas.cookly.ui.theme.CooklyAppTheme
 
 @Composable
-fun HomeScreen(
-    onNavigateUp: () -> Unit
-) {
+fun HomeScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -33,8 +31,6 @@ fun HomeScreen(
 @Composable
 private fun HomeScreenPreview() {
     CooklyAppTheme {
-        HomeScreen(
-            onNavigateUp = {}
-        )
+        HomeScreen()
     }
 }

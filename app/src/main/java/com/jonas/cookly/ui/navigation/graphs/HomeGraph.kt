@@ -7,16 +7,12 @@ import com.jonas.cookly.ui.features.home.HomeScreen
 import com.jonas.cookly.ui.navigation.screens.Graphs
 import com.jonas.cookly.ui.navigation.screens.HomeScreens
 
-fun NavGraphBuilder.homeGraph(
-    onNavigateUp: () -> Unit
-) {
+fun NavGraphBuilder.homeGraph() {
     navigation<Graphs.HomeGraph>(
         startDestination = HomeScreens.HomeScreen
     ) {
         composable<HomeScreens.HomeScreen> {
-            HomeScreen(
-                onNavigateUp = onNavigateUp
-            )
+            HomeScreen()
         }
     }
 }
