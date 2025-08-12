@@ -1,29 +1,29 @@
-package com.jonas.cookly.ui.presentation.features.register.presentation
+package com.jonas.cookly.ui.features.register.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jonas.cookly.core.util.extensions.observeState
 import com.jonas.cookly.core.util.extensions.toFormattedPhoneNumber
 import com.jonas.cookly.core.util.sideeffect.SideEffect
-import com.jonas.cookly.ui.presentation.features.register.domain.model.AddUserRequestModel
-import com.jonas.cookly.ui.presentation.features.register.domain.model.RegisterInputValidationType
-import com.jonas.cookly.ui.presentation.features.register.domain.usecase.RegisterUserUseCase
-import com.jonas.cookly.ui.presentation.features.register.domain.usecase.ValidateRegisterInputUseCase
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnEmailChanged
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnNameChanged
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnPasswordChanged
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnPasswordConfirmationChanged
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnPhoneChanged
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnRegisterClick
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnTogglePasswordConfirmationVisibility
-import com.jonas.cookly.ui.presentation.features.register.presentation.RegisterUserEvent.OnTogglePasswordVisibility
-import com.jonas.cookly.ui.presentation.features.register.presentation.state.RegisterUserState
-import com.jonas.cookly.ui.presentation.features.register.presentation.util.RegisterField
-import com.jonas.cookly.ui.presentation.features.register.presentation.util.RegisterField.Email
-import com.jonas.cookly.ui.presentation.features.register.presentation.util.RegisterField.Name
-import com.jonas.cookly.ui.presentation.features.register.presentation.util.RegisterField.Password
-import com.jonas.cookly.ui.presentation.features.register.presentation.util.RegisterField.PasswordConfirmation
-import com.jonas.cookly.ui.presentation.features.register.presentation.util.RegisterField.Phone
+import com.jonas.cookly.ui.features.register.domain.model.AddUserRequestModel
+import com.jonas.cookly.ui.features.register.domain.model.RegisterInputValidationType
+import com.jonas.cookly.ui.features.register.domain.usecase.RegisterUserUseCase
+import com.jonas.cookly.ui.features.register.domain.usecase.ValidateRegisterInputUseCase
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnEmailChanged
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnNameChanged
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnPasswordChanged
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnPasswordConfirmationChanged
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnPhoneChanged
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnRegisterClick
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnTogglePasswordConfirmationVisibility
+import com.jonas.cookly.ui.features.register.presentation.RegisterUserEvent.OnTogglePasswordVisibility
+import com.jonas.cookly.ui.features.register.presentation.state.RegisterUserState
+import com.jonas.cookly.ui.features.register.presentation.util.RegisterField
+import com.jonas.cookly.ui.features.register.presentation.util.RegisterField.Email
+import com.jonas.cookly.ui.features.register.presentation.util.RegisterField.Name
+import com.jonas.cookly.ui.features.register.presentation.util.RegisterField.Password
+import com.jonas.cookly.ui.features.register.presentation.util.RegisterField.PasswordConfirmation
+import com.jonas.cookly.ui.features.register.presentation.util.RegisterField.Phone
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -134,8 +134,8 @@ class RegisterUserViewModel @Inject constructor(
 
     private fun buildUserRequestModel() = AddUserRequestModel(
         name = _uiState.value.nameInput,
-        email = _uiState.value.emailInput,
+        email = _uiState.value.emailInput.trim(),
         phone = _uiState.value.phoneInput.toFormattedPhoneNumber(),
-        password = _uiState.value.passwordInput
+        password = _uiState.value.passwordInput.trim()
     )
 }
