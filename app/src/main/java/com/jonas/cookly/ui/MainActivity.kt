@@ -26,7 +26,6 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             CooklyAppTheme {
-
                 val uiState by viewModel.uiState.collectAsStateWithLifecycle()
                 val startDestination = uiState.startDestination
 

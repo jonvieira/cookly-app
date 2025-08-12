@@ -66,23 +66,6 @@ android {
         autoCorrect = true
 
         config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
-
-        reports {
-            html {
-                required.set(true)
-                outputLocation.set(file("$buildDir/reports/detekt/detekt-report.html"))
-            }
-            xml {
-                required.set(true)
-                outputLocation.set(file("$buildDir/reports/detekt/detekt-report.xml"))
-            }
-            txt {
-                required.set(false)
-            }
-            sarif {
-                required.set(false)
-            }
-        }
     }
 }
 

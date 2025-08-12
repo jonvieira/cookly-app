@@ -47,5 +47,4 @@ class DataStoreLocalSourceImpl @Inject constructor(
             preferences.clear()
         }
     }
-
 }
