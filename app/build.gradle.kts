@@ -32,12 +32,18 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"${apiKeyProperties.getProperty("BASE_URL")}\"")
+        }
+
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", "\"${apiKeyProperties.getProperty("BASE_URL")}\"")
         }
     }
     compileOptions {
@@ -60,23 +66,6 @@ android {
         autoCorrect = true
 
         config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
-
-        reports {
-            html {
-                required.set(true)
-                outputLocation.set(file("$buildDir/reports/detekt/detekt-report.html"))
-            }
-            xml {
-                required.set(true)
-                outputLocation.set(file("$buildDir/reports/detekt/detekt-report.xml"))
-            }
-            txt {
-                required.set(false)
-            }
-            sarif {
-                required.set(false)
-            }
-        }
     }
 }
 

@@ -1,6 +1,7 @@
 package com.jonas.cookly.core.di
 
 import com.google.gson.Gson
+import com.google.gson.Strictness
 import com.jonas.cookly.BuildConfig.BASE_URL
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApi
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApiImpl
@@ -63,7 +64,7 @@ object KtorModule {
             }
             install(ContentNegotiation) {
                 gson {
-                    setLenient()
+                    setStrictness(Strictness.LENIENT)
                     setPrettyPrinting()
                     serializeNulls()
                 }
