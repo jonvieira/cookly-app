@@ -22,7 +22,7 @@ class GetRecipesByUserUseCaseImpl @Inject constructor(
         return try {
             when (val response = getRecipesByUserRepository.getRecipesByUser(params.category)) {
                 is ServiceResult.Success -> {
-                    if(response.data.isEmpty()) {
+                    if (response.data.isEmpty()) {
                         ResponseData.Empty
                     } else {
                         ResponseData.Success(response.data)

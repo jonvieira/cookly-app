@@ -49,5 +49,4 @@ object RecipesModule {
             getRecipesByUserRepository = getRecipesByUserRepository
         )
     }
-
 }

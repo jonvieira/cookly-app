@@ -1,7 +1,6 @@
 package com.jonas.cookly.core.data.remote.requests.recipes
 
 import com.google.gson.annotations.SerializedName
-import com.jonas.cookly.core.data.remote.response.recipes.IngredientsResponse
 
 data class AddUpdateRecipeRequest(
     @SerializedName("name")
