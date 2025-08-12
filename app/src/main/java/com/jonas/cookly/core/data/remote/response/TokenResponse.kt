@@ -1,7 +1,7 @@
 package com.jonas.cookly.core.data.remote.response
 
 import com.google.gson.annotations.SerializedName
-import com.jonas.cookly.ui.presentation.features.login.domain.model.TokenResponseModel
+import com.jonas.cookly.ui.features.login.domain.model.TokenResponseModel
 
 data class TokenResponse(
     @SerializedName("isSuccessful")
