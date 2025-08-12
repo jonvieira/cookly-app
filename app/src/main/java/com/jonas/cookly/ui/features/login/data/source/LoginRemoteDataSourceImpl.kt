@@ -1,6 +1,6 @@
 package com.jonas.cookly.ui.features.login.data.source
 
-import com.jonas.cookly.core.data.remote.response.toTokenResponseModel
+import com.jonas.cookly.core.data.remote.response.auth.toTokenResponseModel
 import com.jonas.cookly.core.data.remote.service.RecipesServiceApi
 import com.jonas.cookly.core.util.ServiceResult
 import com.jonas.cookly.core.util.mapper

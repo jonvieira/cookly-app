@@ -1,6 +1,6 @@
 package com.jonas.cookly.ui.features.register.domain.model
 
-import com.jonas.cookly.core.data.remote.requests.AddUserRequest
+import com.jonas.cookly.core.data.remote.requests.auth.AddUserRequest
 
 data class AddUserRequestModel(
     val name: String,

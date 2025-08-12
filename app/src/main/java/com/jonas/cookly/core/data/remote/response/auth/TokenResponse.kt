@@ -1,4 +1,4 @@
-package com.jonas.cookly.core.data.remote.response
+package com.jonas.cookly.core.data.remote.response.auth
 
 import com.google.gson.annotations.SerializedName
 import com.jonas.cookly.ui.features.login.domain.model.TokenResponseModel

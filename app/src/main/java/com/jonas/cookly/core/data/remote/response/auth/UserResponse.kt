@@ -1,8 +1,10 @@
-package com.jonas.cookly.core.data.remote.requests
+package com.jonas.cookly.core.data.remote.response.auth
 
 import com.google.gson.annotations.SerializedName
 
-data class AddUserRequest(
+data class UserResponse(
+    @SerializedName("id")
+    val id: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("email")
@@ -10,5 +12,7 @@ data class AddUserRequest(
     @SerializedName("password")
     val password: String,
     @SerializedName("phone")
-    val phone: String
+    val phone: String,
+    @SerializedName("createdAt")
+    val createdAt: String
 )
